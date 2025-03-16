@@ -1,12 +1,11 @@
-import { RouterProvider } from "react-router-dom";
 import "./App.css";
-import router from "./routes";
+import { MainLayout } from "./components/layout/MainLayout";
 
 function App() {
   return (
-    <>
-      <RouterProvider router={router} />
-    </>
+    <div className="max-w-[1400px] mx-auto">
+      <MainLayout />
+    </div>
   );
 }
 

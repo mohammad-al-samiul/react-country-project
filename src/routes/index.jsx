@@ -1,13 +1,16 @@
 import { createBrowserRouter } from "react-router-dom";
-import { MainLayout } from "../layout/MainLayout";
 import { Home } from "../pages/home";
 import { About } from "../pages/about";
 import { Contact } from "../pages/contact";
+import { ErrorPage } from "../pages/error-page";
+import { Countries } from "../pages/countries";
+import App from "../App";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <MainLayout />,
+    element: <App />,
+    errorElement: <ErrorPage />,
     children: [
       {
         index: true,
@@ -16,6 +19,10 @@ const router = createBrowserRouter([
       {
         path: "home",
         element: <Home />,
+      },
+      {
+        path: "countries",
+        element: <Countries />,
       },
       {
         path: "about",
