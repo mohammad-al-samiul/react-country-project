@@ -3,7 +3,7 @@ import { FaArrowRightLong } from "react-icons/fa6";
 
 export const Banner = () => {
   return (
-    <div className="hero min-h-screen">
+    <div className="hero max-h-screen">
       <div className="lg:container hero-content lg:max-w-full flex-col lg:flex-row">
         <div className="text-center lg:text-left lg:w-1/2">
           <h1 className="lg:text-5xl text-3xl font-bold">

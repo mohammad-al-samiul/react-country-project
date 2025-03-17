@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "name": "Japan",
+    "population": 125800000,
+    "capital": "Tokyo",
+    "interesting_fact": "Japan has more than 6,800 islands."
+  },
+  {
+    "id": 2,
+    "name": "Brazil",
+    "population": 216000000,
+    "capital": "Brasília",
+    "interesting_fact": "Brazil is home to the Amazon Rainforest, which produces 20% of the world's oxygen."
+  },
+  {
+    "id": 3,
+    "name": "Canada",
+    "population": 39000000,
+    "capital": "Ottawa",
+    "interesting_fact": "Canada has the longest coastline of any country in the world."
+  },
+  {
+    "id": 4,
+    "name": "India",
+    "population": 1428000000,
+    "capital": "New Delhi",
+    "interesting_fact": "India is the world's largest democracy."
+  },
+  {
+    "id": 5,
+    "name": "Australia",
+    "population": 26000000,
+    "capital": "Canberra",
+    "interesting_fact": "Australia is home to the world's largest coral reef, the Great Barrier Reef."
+  },
+  {
+    "id": 6,
+    "name": "Germany",
+    "population": 83000000,
+    "capital": "Berlin",
+    "interesting_fact": "Germany is known for its famous Oktoberfest beer festival."
+  },
+  {
+    "id": 7,
+    "name": "Egypt",
+    "population": 110000000,
+    "capital": "Cairo",
+    "interesting_fact": "Egypt is home to the Great Pyramid of Giza, one of the Seven Wonders of the Ancient World."
+  },
+  {
+    "id": 8,
+    "name": "South Africa",
+    "population": 60000000,
+    "capital": "Pretoria",
+    "interesting_fact": "South Africa has three capital cities: Pretoria (executive), Bloemfontein (judicial), and Cape Town (legislative)."
+  },
+  {
+    "id": 9,
+    "name": "Mexico",
+    "population": 130000000,
+    "capital": "Mexico City",
+    "interesting_fact": "Mexico introduced chocolate, chilies, and corn to the world."
+  },
+  {
+    "id": 10,
+    "name": "Russia",
+    "population": 143000000,
+    "capital": "Moscow",
+    "interesting_fact": "Russia is the largest country in the world by land area."
+  },
+  {
+    "id": 11,
+    "name": "France",
+    "population": 68000000,
+    "capital": "Paris",
+    "interesting_fact": "France is the most visited country in the world."
+  },
+  {
+    "id": 12,
+    "name": "China",
+    "population": 1412000000,
+    "capital": "Beijing",
+    "interesting_fact": "China has the world's longest wall, the Great Wall of China, stretching over 13,000 miles."
+  }
+]
