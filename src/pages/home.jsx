@@ -1,5 +1,10 @@
 import React from "react";
+import { Banner } from "./banner";
 
 export const Home = () => {
-  return <div className="text-5xl font-bold underline">Home</div>;
+  return (
+    <>
+      <Banner />
+    </>
+  );
 };
