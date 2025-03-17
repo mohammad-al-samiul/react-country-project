@@ -3,7 +3,7 @@ import { MainLayout } from "./components/layout/MainLayout";
 
 function App() {
   return (
-    <div className="max-w-[1400px] mx-auto">
+    <div>
       <MainLayout />
     </div>
   );
