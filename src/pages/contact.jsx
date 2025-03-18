@@ -5,7 +5,8 @@ export const Contact = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     console.log({ name, email, message });
   };
 
@@ -16,7 +17,7 @@ export const Contact = () => {
           Contact Us
         </h3>
         <div className="bg-base-100 shadow-sm rounded-lg">
-          <div className="card-body">
+          <form onSubmit={handleSubmit} className="card-body">
             <fieldset className="fieldset">
               <label className="fieldset-label">Name</label>
               <input
@@ -41,14 +42,11 @@ export const Contact = () => {
                 onChange={(e) => setMessage(e.target.value)}
                 className="textarea"
               ></textarea>
-              <button
-                onClick={handleSubmit}
-                className="btn btn-neutral w-[322px] mt-4"
-              >
+              <button type="submit" className="btn btn-neutral w-[322px] mt-4">
                 Send Me
               </button>
             </fieldset>
-          </div>
+          </form>
         </div>
       </div>
     </div>

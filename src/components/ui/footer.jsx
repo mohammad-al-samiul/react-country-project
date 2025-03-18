@@ -20,8 +20,7 @@ export const Footer = () => {
       <nav>
         <h6 className="footer-title">Company</h6>
         {footerNavLinks.map(({ name, path }) => (
-          <Link to={path} className="link-hover">
-            {" "}
+          <Link key={name} to={path} className="link-hover">
             {name}
           </Link>
         ))}
