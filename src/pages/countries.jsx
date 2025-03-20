@@ -1,30 +1,58 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { useCountries } from "../hooks/useCountries";
 import { Card } from "../components/ui/card";
 import { Loader } from "../components/ui/loader";
+import { SearchField } from "../components/ui/search-field";
+import { SelectCountry } from "../components/ui/select-country";
 
 export const Countries = () => {
   const { countries, isPending, error } = useCountries();
+  const [filter, setFilter] = useState("all");
+  const [search, setSearch] = useState("");
 
-  if (isPending) {
-    return <Loader />;
-  }
+  const searchCountry = (country) => {
+    if (search) {
+      return country.name.common.toLowerCase().includes(search.toLowerCase());
+    }
+    return country;
+  };
+  const filteredCountries = countries?.filter((country) =>
+    searchCountry(country)
+  );
+
   if (error) {
     return <p>{error}</p>;
   }
 
+  // console.log(search, filter);
+
   return (
     <div className="lg:container my-20">
-      <h2 className="text-3xl lg:text-5xl font-bold text-center">
+      <h2 className="text-3xl lg:text-5xl my-5 font-bold text-center">
         All Countries
       </h2>
+      <div className="lg:px-6 flex justify-between">
+        <div>
+          <SearchField search={search} setSearch={setSearch} />
+        </div>
+        <div>
+          <button className="btn btn-outline mx-3">Asc</button>
+          <button className="btn btn-outline mx-3">Dsc</button>
+        </div>
+        <div>
+          <SelectCountry
+            filter={filter}
+            setFilter={setFilter}
+            countries={countries}
+          />
+        </div>
+      </div>
       <div className="my-20 p-6 w-full  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-        {isPending && <p>Loading...</p>}
-        {!isPending &&
-          countries
-            ?.slice(0, 12)
-            .map((country, i) => <Card key={i} country={country} />)}
+        {isPending && <Loader />}
+        {filteredCountries?.slice(0, 12).map((country, i) => (
+          <Card key={i} country={country} />
+        ))}
       </div>
     </div>
   );

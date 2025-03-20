@@ -1,7 +1,8 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useIndivCountry } from "../hooks/useCountries";
 import { Loader } from "../components/ui/loader";
+import { FaLongArrowAltLeft } from "react-icons/fa";
 
 export const CountryDetails = () => {
   const { name } = useParams();
@@ -58,6 +59,13 @@ export const CountryDetails = () => {
                   </li>
                 ))}
             </p>
+            <div className="flex justify-end">
+              <Link to={"/countries"}>
+                <button className="btn btn-outline hover:btn-neutral">
+                  <FaLongArrowAltLeft /> Go Back
+                </button>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
