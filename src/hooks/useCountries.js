@@ -23,7 +23,7 @@ export const useCountries = () => {
     };
     getCountries();
   }, []);
-  return { countries, isPending, error };
+  return { countries, isPending, error, setCountries };
 };
 
 export const useIndivCountry = (name) => {
@@ -46,5 +46,5 @@ export const useIndivCountry = (name) => {
     getIndivCountry();
   }, [name]);
 
-  return { country, isPending, error };
+  return { country, isPending, error, setCountry };
 };

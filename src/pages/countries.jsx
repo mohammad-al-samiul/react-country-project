@@ -5,29 +5,12 @@ import { Card } from "../components/ui/card";
 import { Loader } from "../components/ui/loader";
 import { SearchField } from "../components/ui/search-field";
 import { SelectCountry } from "../components/ui/select-country";
+import { SortingButton } from "../components/ui/sorting-button";
 
 export const Countries = () => {
-  const { countries, isPending, error } = useCountries();
+  const { countries, isPending, error, setCountries } = useCountries();
   const [filter, setFilter] = useState("all");
   const [search, setSearch] = useState("");
-
-  // const searchCountry = (country) => {
-  //   if (search) {
-  //     return country.name.common.toLowerCase().includes(search.toLowerCase());
-  //   }
-  //   return country;
-  // };
-
-  // const filterRegion = (country) => {
-  //   if (filter.toLowerCase() === "all") {
-  //     return country;
-  //   }
-  //   return country.region.toLowerCase() === filter.toLowerCase();
-  // };
-
-  // const filteredCountries = countries?.filter(
-  //   (country) => searchCountry(country) && filterRegion(country)
-  // );
 
   const searchCountry = (country) => {
     if (search) {
@@ -47,6 +30,15 @@ export const Countries = () => {
     (country) => searchCountry(country) && filterRegion(country)
   );
 
+  const sortCountries = (value) => {
+    const sortedCountries = [...countries].sort((a, b) => {
+      return value === "asc"
+        ? a.name.common.localeCompare(b.name.common)
+        : b.name.common.localeCompare(a.name.common);
+    });
+    setCountries(sortedCountries);
+  };
+
   if (error) {
     return <p>{error}</p>;
   }
@@ -63,8 +55,7 @@ export const Countries = () => {
           <SearchField search={search} setSearch={setSearch} />
         </div>
         <div>
-          <button className="btn btn-outline mx-3">Asc</button>
-          <button className="btn btn-outline mx-3">Dsc</button>
+          <SortingButton sortCountries={sortCountries} />
         </div>
         <div>
           <SelectCountry filter={filter} setFilter={setFilter} />
