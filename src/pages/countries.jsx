@@ -17,15 +17,23 @@ export const Countries = () => {
     }
     return country;
   };
-  const filteredCountries = countries?.filter((country) =>
-    searchCountry(country)
+
+  const filterRegion = (country) => {
+    if (filter.toLowerCase() === "all") {
+      return country;
+    }
+    return country.region.toLowerCase() === filter.toLowerCase();
+  };
+
+  const filteredCountries = countries?.filter(
+    (country) => searchCountry(country) && filterRegion(country)
   );
 
   if (error) {
     return <p>{error}</p>;
   }
 
-  // console.log(search, filter);
+  console.log(search, filter);
 
   return (
     <div className="lg:container my-20">
@@ -41,11 +49,7 @@ export const Countries = () => {
           <button className="btn btn-outline mx-3">Dsc</button>
         </div>
         <div>
-          <SelectCountry
-            filter={filter}
-            setFilter={setFilter}
-            countries={countries}
-          />
+          <SelectCountry filter={filter} setFilter={setFilter} />
         </div>
       </div>
       <div className="my-20 p-6 w-full  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">

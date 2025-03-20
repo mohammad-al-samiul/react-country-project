@@ -1,7 +1,7 @@
 import React from "react";
 import regions from "../../api/region.json";
 
-export const SelectCountry = ({ filter, setFilter, countries }) => {
+export const SelectCountry = ({ filter, setFilter }) => {
   return (
     <select
       value={filter}
@@ -10,7 +10,6 @@ export const SelectCountry = ({ filter, setFilter, countries }) => {
     >
       {regions.map((region, i) => (
         <option key={i} value={region.name}>
-          {" "}
           {region.name}
         </option>
       ))}
