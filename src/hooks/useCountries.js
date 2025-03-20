@@ -1,5 +1,8 @@
 import { useEffect, useState, useTransition } from "react";
-import { getCountriesData } from "../services/countriesService";
+import {
+  getCountriesData,
+  getIndivCountryData,
+} from "../services/countriesService";
 
 export const useCountries = () => {
   const [isPending, startTransition] = useTransition();
@@ -20,4 +23,26 @@ export const useCountries = () => {
     });
   }, []);
   return { countries, isPending, error };
+};
+
+export const useIndivCountry = () => {
+  const [error, setError] = useState(null);
+  const [isPending, startTransition] = useTransition();
+  const [country, setCountry] = useState();
+
+  useEffect(() => {
+    startTransition(() => {
+      const getIndivCountry = async (name) => {
+        try {
+          const data = await getIndivCountryData(name);
+          setCountry(data);
+        } catch (err) {
+          setError(err);
+        }
+      };
+      getIndivCountry();
+    });
+  }, []);
+
+  return { country, isPending, error };
 };
