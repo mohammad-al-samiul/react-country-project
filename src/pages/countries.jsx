@@ -11,6 +11,24 @@ export const Countries = () => {
   const [filter, setFilter] = useState("all");
   const [search, setSearch] = useState("");
 
+  // const searchCountry = (country) => {
+  //   if (search) {
+  //     return country.name.common.toLowerCase().includes(search.toLowerCase());
+  //   }
+  //   return country;
+  // };
+
+  // const filterRegion = (country) => {
+  //   if (filter.toLowerCase() === "all") {
+  //     return country;
+  //   }
+  //   return country.region.toLowerCase() === filter.toLowerCase();
+  // };
+
+  // const filteredCountries = countries?.filter(
+  //   (country) => searchCountry(country) && filterRegion(country)
+  // );
+
   const searchCountry = (country) => {
     if (search) {
       return country.name.common.toLowerCase().includes(search.toLowerCase());
@@ -22,10 +40,10 @@ export const Countries = () => {
     if (filter.toLowerCase() === "all") {
       return country;
     }
-    return country.region.toLowerCase() === filter.toLowerCase();
+    return filter.toLowerCase() === country.region.toLowerCase();
   };
 
-  const filteredCountries = countries?.filter(
+  const filteredCountries = countries.filter(
     (country) => searchCountry(country) && filterRegion(country)
   );
 
@@ -33,7 +51,7 @@ export const Countries = () => {
     return <p>{error}</p>;
   }
 
-  console.log(search, filter);
+  //console.log(search, filter);
 
   return (
     <div className="lg:container my-20">
@@ -52,8 +70,15 @@ export const Countries = () => {
           <SelectCountry filter={filter} setFilter={setFilter} />
         </div>
       </div>
+      {isPending && <Loader />}
+      <div>
+        {filteredCountries.length == 0 && (
+          <p className="font-bold lg:text-5xl text-3xl my-20 flex justify-center items-center ">
+            There is no country
+          </p>
+        )}
+      </div>
       <div className="my-20 p-6 w-full  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-        {isPending && <Loader />}
         {filteredCountries?.slice(0, 12).map((country, i) => (
           <Card key={i} country={country} />
         ))}
