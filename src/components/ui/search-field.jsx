@@ -26,8 +26,8 @@ export const SearchField = ({ search, setSearch }) => {
         className="grow"
         placeholder="Search"
       />
-      <kbd className="kbd kbd-sm">⌘</kbd>
-      <kbd className="kbd kbd-sm">K</kbd>
+      {/* <kbd className="kbd kbd-sm">⌘</kbd>
+      <kbd className="kbd kbd-sm">K</kbd> */}
     </label>
   );
 };

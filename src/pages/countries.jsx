@@ -50,7 +50,7 @@ export const Countries = () => {
       <h2 className="text-3xl lg:text-5xl my-5 font-bold text-center">
         All Countries
       </h2>
-      <div className="lg:px-6 flex justify-between">
+      <div className="px-4 flex justify-between">
         <div>
           <SearchField search={search} setSearch={setSearch} />
         </div>
