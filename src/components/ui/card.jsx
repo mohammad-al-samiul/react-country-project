@@ -18,7 +18,7 @@ export const Card = ({ country }) => {
         <span className="text-gray-700 font-bold">
           Capital : <span className="font-light">{country.capital[0]}</span>
         </span>
-        <Link to={`/countries/${country?.name.common}`}>
+        <Link to={`/countries/${country?.name?.common}`}>
           <button className="btn btn-outline hover:btn-neutral">
             Read More
           </button>

@@ -25,14 +25,17 @@ export const useCountries = () => {
   return { countries, isPending, error };
 };
 
-export const useIndivCountry = () => {
+export const useIndivCountry = (name) => {
   const [error, setError] = useState(null);
   const [isPending, startTransition] = useTransition();
   const [country, setCountry] = useState();
 
   useEffect(() => {
+    if (!name) {
+      return;
+    }
     startTransition(() => {
-      const getIndivCountry = async (name) => {
+      const getIndivCountry = async () => {
         try {
           const data = await getIndivCountryData(name);
           setCountry(data);
@@ -42,7 +45,7 @@ export const useIndivCountry = () => {
       };
       getIndivCountry();
     });
-  }, []);
+  }, [name]);
 
   return { country, isPending, error };
 };
