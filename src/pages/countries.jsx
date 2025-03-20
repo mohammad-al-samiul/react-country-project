@@ -7,6 +7,9 @@ import { Loader } from "../components/ui/loader";
 export const Countries = () => {
   const { countries, isPending, error } = useCountries();
 
+  if (isPending) {
+    return <Loader />;
+  }
   if (error) {
     return <p>{error}</p>;
   }
